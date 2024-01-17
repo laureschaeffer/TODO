@@ -5,8 +5,13 @@
 const addBtn = document.querySelector('#btn'); 
 const taskCard = document.querySelector(".todoCard");
 const tasksContainer = document.querySelector("#todoCards");
+const textcount= document.querySelector("#counter"); //element où se place le compteur
+const counter= document.querySelector("#count"); //element qui contient le compteur et le texte
+
+var count = 1;
 
 addBtn.addEventListener('click', addTask); // a chaque click, la fonction addTask déclaré plus bas est appelé
+
 
 
 
@@ -15,13 +20,19 @@ function addTask(){
     const newDelBtn = newTask.querySelector('.delBtn') // pour la fonction supprimer plus bas
     const newTextArea = newTask.querySelector('.task') //on sélectionne la class task (textarea)
 
-
     newTextArea.value = "New Task" //on définit la valeur de la zone de texte
     newDelBtn.addEventListener('click', function(){
         deleteTask(newTask);
     });
 
-    tasksContainer.appendChild(newTask) //ça clone et ajoute cette carte
+    count++;
+    textcount.value= count;
+
+    //essayer appendChild ici
+
+    
+    tasksContainer.appendChild(newTask) //ça ajoute cette carte pour l'afficher
+    
 }
 
 // ------------------supprimer une carte-------------------
@@ -33,7 +44,26 @@ delBtn.addEventListener('click', function(){
 
 function deleteTask(task){
     task.remove();
+
 }
 
 // --------------------compter le nombre de cartes---------------
 
+
+
+
+// function updateCounter(){
+//     counterElem.innerHTML=count;
+// }
+
+
+// cardCounterPlus.addEventListener('click', function(){
+//     count++;
+//     updateCounter();
+// });
+
+// cardCounterLess.addEventListener('click', function(){
+//     count--;
+//     updateCounter();
+// })
+// var count =0;
