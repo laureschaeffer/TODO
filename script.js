@@ -5,14 +5,14 @@
 const addBtn = document.querySelector('#btn'); 
 const taskCard = document.querySelector(".todoCard");
 const tasksContainer = document.querySelector("#todoCards");
-const textcount= document.querySelector("#counter"); //element où se place le compteur
-const counter= document.querySelector("#count"); //element qui contient le compteur et le texte
+
+    const textcount= document.querySelector("#counter"); //element où se place le nombre
+    const counter= document.querySelector("#count"); //element qui contient le compteur et le texte
+
 
 var count = 1;
 
 addBtn.addEventListener('click', addTask); // a chaque click, la fonction addTask déclaré plus bas est appelé
-
-
 
 
 function addTask(){
@@ -24,14 +24,11 @@ function addTask(){
     newDelBtn.addEventListener('click', function(){
         deleteTask(newTask);
     });
-
-    count++;
-    textcount.value= count;
-
-    //essayer appendChild ici
-
     
     tasksContainer.appendChild(newTask) //ça ajoute cette carte pour l'afficher
+    count++; //a chaque clone de carte j'augmente le compteur
+    textcount.innerHTML=count; // je modifie le span par le compteur actuel
+
     
 }
 
@@ -44,26 +41,7 @@ delBtn.addEventListener('click', function(){
 
 function deleteTask(task){
     task.remove();
-
+    count--;
+    textcount.innerHTML=count;
 }
 
-// --------------------compter le nombre de cartes---------------
-
-
-
-
-// function updateCounter(){
-//     counterElem.innerHTML=count;
-// }
-
-
-// cardCounterPlus.addEventListener('click', function(){
-//     count++;
-//     updateCounter();
-// });
-
-// cardCounterLess.addEventListener('click', function(){
-//     count--;
-//     updateCounter();
-// })
-// var count =0;
